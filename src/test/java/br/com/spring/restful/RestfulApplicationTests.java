@@ -1,10 +1,10 @@
-package br.com.restful.springboot;
+package br.com.spring.restful;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootApplicationTests {
+class RestfulApplicationTests {
 
 	@Test
 	void contextLoads() {
