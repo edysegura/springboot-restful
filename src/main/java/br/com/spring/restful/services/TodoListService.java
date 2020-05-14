@@ -1,14 +1,17 @@
 package br.com.spring.restful.services;
 
 import java.util.ArrayList;
-import org.springframework.stereotype.Component;
+import java.util.concurrent.atomic.AtomicLong;
+
+import org.springframework.stereotype.Service;
 
 import br.com.spring.restful.models.Todo;
 
-@Component
+@Service
 public class TodoListService {
 
   private final ArrayList<Todo> todos;
+  private final AtomicLong counter = new AtomicLong();
 
   public TodoListService() {
     this.todos = new ArrayList<Todo>();
@@ -17,7 +20,7 @@ public class TodoListService {
 
   private void populate() {
     for (int i = 0; i < 10; i++) {
-      String id = Integer.toString(i + 1);
+      Long id = counter.incrementAndGet();
       Todo todo = new Todo(id, "Description " + id);
       todos.add(todo);
     }
@@ -28,19 +31,19 @@ public class TodoListService {
   }
 
   public Todo create(Todo todo) {
-    String id = Integer.toString(todos.size() + 1);
+    Long id = counter.incrementAndGet();
     todo.setId(id);
     todos.add(todo);
     return todo;
   }
 
-  public Todo findById(String id) {
+  public Todo findById(Long id) {
     for (Todo todo : this.todos) {
-        if(todo.getId().equals(id)) {
+        if(todo.getId() == id) {
           return todo;
         }
     }
-    return new Todo();
+    return null;
   }
 
 }
