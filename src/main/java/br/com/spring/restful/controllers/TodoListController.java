@@ -2,8 +2,6 @@ package br.com.spring.restful.controllers;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +30,7 @@ public class TodoListController {
   }
 
   @GetMapping(value = "/{id}")
-  public Todo getById(@PathVariable(value = "id") Long id) {
+  public Todo getById(@PathVariable Long id) {
     return todoListService.findById(id);
   }
 
@@ -43,14 +41,15 @@ public class TodoListController {
 
   @PatchMapping(value = "/{id}")
   public Todo update(@PathVariable Long id, @RequestBody Todo todo) {
-    // TODO to be implemented
+    // TODO update to be implemented
     todo.setId(id);
     return todo;
   }
 
   @DeleteMapping(value = "/{id}")
-  @ResponseStatus(code = HttpStatus.ACCEPTED)
-  public void delete(@PathVariable String id, HttpServletResponse response) {
-    // TODO to be implemented
+  @ResponseStatus(code = HttpStatus.NO_CONTENT)
+  public void delete(@PathVariable Long id) {
+    // TODO delete to be implemented
   }
+
 }
