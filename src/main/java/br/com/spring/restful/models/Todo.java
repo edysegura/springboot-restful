@@ -2,23 +2,23 @@ package br.com.spring.restful.models;
 
 public class Todo {
 
-  private Long id;
+  private long id;
   private String description;
-  private Boolean done = false;
+  private boolean done = false;
 
   public Todo() {
   }
 
-  public Todo(Long id, String description) {
+  public Todo(long id, String description) {
     this.id = id;
     this.description = description;
   }
 
-  public Long getId() {
+  public long getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
@@ -30,11 +30,11 @@ public class Todo {
     this.description = description;
   }
 
-  public Boolean getDone() {
+  public boolean getDone() {
     return this.done;
   }
 
-  public void setDone(Boolean done) {
+  public void setDone(boolean done) {
     this.done = done;
   }
 
