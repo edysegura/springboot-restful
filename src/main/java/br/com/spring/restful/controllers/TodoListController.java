@@ -1,6 +1,7 @@
 package br.com.spring.restful.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class TodoListController {
   }
 
   @GetMapping(value = "/{id}")
-  public Todo getById(@PathVariable final long id) {
+  public Optional<Todo> getById(@PathVariable final long id) {
     return todoListService.findById(id);
   }
 
