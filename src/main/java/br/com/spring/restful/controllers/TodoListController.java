@@ -24,23 +24,23 @@ public class TodoListController {
   @Autowired
   TodoListService todoListService;
 
-  @GetMapping()
+  @GetMapping
   public List<Todo> findAll() {
     return todoListService.findAll();
   }
 
   @GetMapping(value = "/{id}")
-  public Todo getById(@PathVariable Long id) {
+  public Todo getById(@PathVariable final long id) {
     return todoListService.findById(id);
   }
 
-  @PostMapping()
-  public Todo create(@RequestBody Todo todo) {
+  @PostMapping
+  public Todo create(@RequestBody final Todo todo) {
     return todoListService.create(todo);
   }
 
   @PatchMapping(value = "/{id}")
-  public Todo update(@PathVariable Long id, @RequestBody Todo todo) {
+  public Todo update(@PathVariable final long id, @RequestBody final Todo todo) {
     // TODO update to be implemented
     todo.setId(id);
     return todo;
@@ -48,7 +48,7 @@ public class TodoListController {
 
   @DeleteMapping(value = "/{id}")
   @ResponseStatus(code = HttpStatus.NO_CONTENT)
-  public void delete(@PathVariable Long id) {
+  public void delete(@PathVariable final long id) {
     // TODO delete to be implemented
   }
 
