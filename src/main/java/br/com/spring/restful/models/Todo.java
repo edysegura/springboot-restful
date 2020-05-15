@@ -1,8 +1,11 @@
 package br.com.spring.restful.models;
 
+import javax.validation.constraints.NotBlank;
+
 public class Todo {
 
   private long id;
+  @NotBlank
   private String description;
   private boolean done = false;
 

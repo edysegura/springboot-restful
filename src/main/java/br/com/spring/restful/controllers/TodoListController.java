@@ -2,6 +2,9 @@ package br.com.spring.restful.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,12 +39,12 @@ public class TodoListController {
   }
 
   @PostMapping
-  public Todo create(@RequestBody final Todo todo) {
+  public Todo create(@Valid @NotNull @RequestBody final Todo todo) {
     return todoListService.create(todo);
   }
 
   @PatchMapping(value = "/{id}")
-  public Todo update(@PathVariable final long id, @RequestBody final Todo todo) {
+  public Todo update(@PathVariable final long id, @Valid @NotNull @RequestBody final Todo todo) {
     // TODO update to be implemented
     todo.setId(id);
     return todo;
