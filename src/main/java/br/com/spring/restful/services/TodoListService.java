@@ -1,47 +1,51 @@
 package br.com.spring.restful.services;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import br.com.spring.restful.dao.TodoDao;
 import br.com.spring.restful.models.Todo;
 
 @Service
 public class TodoListService {
 
-  private final ArrayList<Todo> DB;
-  private final AtomicLong counter = new AtomicLong();
+  private final TodoDao todoDao;
 
-  public TodoListService() {
-    this.DB = new ArrayList<Todo>();
+  @Autowired
+  public TodoListService(@Qualifier("memoryDB") TodoDao todoDao) {
+    this.todoDao = todoDao;
     this.populate();
   }
 
   private void populate() {
-    for (int i = 0; i < 10; i++) {
-      long id = counter.incrementAndGet();
-      Todo todo = new Todo(id, "Description " + id);
-      DB.add(todo);
+    for (int i = 1; i < 11; i++) {
+      Todo item = new Todo("Description " + i);
+      todoDao.create(item);
     }
   }
 
-  public ArrayList<Todo> findAll() {
-    return DB;
+  public List<Todo> findAll() {
+    return todoDao.findAll();
   }
 
-  public Todo create(Todo todo) {
-    long id = counter.incrementAndGet();
-    todo.setId(id);
-    DB.add(todo);
-    return todo;
+  public Todo create(Todo item) {
+    return todoDao.create(item);
   }
 
   public Optional<Todo> findById(long id) {
-    return DB.stream()
-      .filter(todo -> todo.getId() == id)
-      .findFirst();
+    return todoDao.findById(id);
+  }
+
+  public Todo update(final long id, final Todo item) {
+    return todoDao.update(id, item);
+  }
+
+  public boolean delete(final long id) {
+    return todoDao.delete(id);
   }
 
 }
