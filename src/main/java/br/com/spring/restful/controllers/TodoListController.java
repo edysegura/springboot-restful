@@ -34,26 +34,25 @@ public class TodoListController {
 
   @GetMapping(value = "/{id}")
   public Todo getById(@PathVariable final long id) {
-    return todoListService.findById(id)
+    return todoListService
+      .findById(id)
       .orElse(null);
   }
 
   @PostMapping
-  public Todo create(@Valid @NotNull @RequestBody final Todo todo) {
-    return todoListService.create(todo);
+  public Todo create(@Valid @NotNull @RequestBody final Todo item) {
+    return todoListService.create(item);
   }
 
   @PatchMapping(value = "/{id}")
-  public Todo update(@PathVariable final long id, @Valid @NotNull @RequestBody final Todo todo) {
-    // TODO update to be implemented
-    todo.setId(id);
-    return todo;
+  public Todo update(@PathVariable final long id, @Valid @NotNull @RequestBody final Todo item) {
+    return todoListService.update(id, item);
   }
 
   @DeleteMapping(value = "/{id}")
   @ResponseStatus(code = HttpStatus.NO_CONTENT)
   public void delete(@PathVariable final long id) {
-    // TODO delete to be implemented
+    todoListService.delete(id);
   }
 
 }
