@@ -12,7 +12,7 @@ import br.com.spring.restful.models.Todo;
 @Repository("memoryDB")
 public class TodoDaoMemoryDB implements TodoDao {
 
-  private final static AtomicLong counter = new AtomicLong();
+  private final static AtomicLong counter = new AtomicLong(1);
   private final static List<Todo> DB = new ArrayList<Todo>();
 
   @Override
