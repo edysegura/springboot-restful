@@ -6,18 +6,27 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import br.com.spring.restful.interceptor.CounterInterceptor;
+import br.com.spring.restful.interceptor.TokenInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 
-  @Autowired
+  private TokenInterceptor tokenInterceptor;
   private CounterInterceptor counterInterceptor;
+
+  @Autowired
+  public InterceptorConfig(
+    TokenInterceptor tokenInterceptor,
+    CounterInterceptor counterInterceptor
+  ) {
+    this.tokenInterceptor = tokenInterceptor;
+    this.counterInterceptor = counterInterceptor;
+  }
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(tokenInterceptor);
     registry.addInterceptor(counterInterceptor);
-    // TODO add token interceptor
-    // TODO exception handler
   }
 
 }

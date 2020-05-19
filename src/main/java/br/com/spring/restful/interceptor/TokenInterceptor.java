@@ -3,25 +3,21 @@ package br.com.spring.restful.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import br.com.spring.restful.component.TriggerCounter;
-
 @Component
-public class CounterInterceptor implements HandlerInterceptor {
-
-  @Autowired
-  TriggerCounter triggerCounter;
+public class TokenInterceptor implements HandlerInterceptor {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-    System.out.println("||----------> API Counter");
+    System.out.println("||----------> Token authorization validation");
 
-    String api = request.getMethod() + ":" + request.getRequestURI();
-    triggerCounter.increment(api);
+    if (!request.getRequestURI().contains("swagger") && StringUtils.isEmpty(request.getHeader("Authorization"))) {
+      throw new Exception("Could not check the authorization");
+    }
 
     return HandlerInterceptor.super.preHandle(request, response, handler);
   }
