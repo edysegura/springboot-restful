@@ -14,6 +14,7 @@ public class TokenInterceptor implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
     System.out.println("||----------> Token authorization validation");
+    System.out.println("||----------> Path: " + request.getRequestURI());
 
     if (!request.getRequestURI().contains("swagger") && StringUtils.isEmpty(request.getHeader("Authorization"))) {
       throw new Exception("Could not check the authorization");
