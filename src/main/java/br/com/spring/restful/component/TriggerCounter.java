@@ -7,21 +7,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class TriggerCounter {
 
-  private final HashMap<String, Integer> counter = new HashMap<String, Integer>();
+  private final HashMap<String, Integer> counters = new HashMap<String, Integer>();
 
   public void increment(String api) {
-    Integer value = counter.get(api);
-    if (value != null) {
-      value++;
-    }
-    else {
-      value = 1;
-    }
-    counter.put(api, value);
+    Integer value = counters.get(api);
+    value = (value != null) ? value + 1 : 1;
+    counters.put(api, value);
   }
 
+  @SuppressWarnings("unchecked")
   public HashMap<String, Integer> getCounter() {
-    return counter;
+    return (HashMap<String, Integer>) counters.clone();
   }
 
 }
