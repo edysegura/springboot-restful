@@ -1,4 +1,4 @@
-package br.com.spring.restful.models;
+package br.com.spring.restful.model;
 
 import javax.validation.constraints.NotBlank;
 

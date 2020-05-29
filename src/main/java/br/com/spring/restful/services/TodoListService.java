@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import br.com.spring.restful.dao.TodoDao;
-import br.com.spring.restful.models.Todo;
+import br.com.spring.restful.model.Todo;
 
 @Service
 public class TodoListService {

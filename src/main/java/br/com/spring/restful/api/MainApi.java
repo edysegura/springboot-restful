@@ -1,4 +1,4 @@
-package br.com.spring.restful.controllers;
+package br.com.spring.restful.api;
 
 import java.util.Map;
 
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.spring.restful.component.TriggerCounter;
 
 @RestController
-public class MainController {
+public class MainApi {
 
   @Autowired
   TriggerCounter counter;
 
-  @GetMapping(value = "/")
+  @GetMapping()
   public String index() {
     return "Welcome to Todo List REST API!";
   }

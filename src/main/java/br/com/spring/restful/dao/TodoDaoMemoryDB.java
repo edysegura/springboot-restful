@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.spring.restful.models.Todo;
+import br.com.spring.restful.model.Todo;
 
 @Repository("memoryDB")
 public class TodoDaoMemoryDB implements TodoDao {

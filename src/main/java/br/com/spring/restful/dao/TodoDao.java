@@ -3,7 +3,7 @@ package br.com.spring.restful.dao;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.spring.restful.models.Todo;
+import br.com.spring.restful.model.Todo;
 
 public interface TodoDao {
 

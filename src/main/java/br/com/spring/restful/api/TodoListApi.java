@@ -1,4 +1,4 @@
-package br.com.spring.restful.controllers;
+package br.com.spring.restful.api;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.spring.restful.models.Todo;
+import br.com.spring.restful.model.Todo;
 import br.com.spring.restful.services.TodoListService;
 
 @RestController
 @RequestMapping("/api/tasks")
-public class TodoListController {
+public class TodoListApi {
 
   @Autowired
   TodoListService todoListService;
