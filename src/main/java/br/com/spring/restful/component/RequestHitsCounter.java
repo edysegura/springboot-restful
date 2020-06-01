@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TriggerCounter {
+public class RequestHitsCounter {
 
   private final HashMap<String, Integer> counters = new HashMap<String, Integer>();
 

@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.spring.restful.component.TriggerCounter;
+import br.com.spring.restful.component.RequestHitsCounter;
 
 @RestController
 public class MainApi {
 
   @Autowired
-  TriggerCounter counter;
+  RequestHitsCounter counter;
 
   @GetMapping()
   public String index() {
