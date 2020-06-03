@@ -2,6 +2,14 @@
 
 I've create this project to learn about Spring Boot by doing!
 
+## Docker Image
+
+In order to generate a Docker Image just run the command below:
+
+```
+./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=edysegura/springboot-restful
+```
+
 ## References
 
 - [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
