@@ -10,6 +10,12 @@ In order to generate a Docker Image just run the command below:
 ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=edysegura/springboot-restful
 ```
 
+## Instruction
+
+```
+docker run -p 8080:8080 edysegura/springboot-restful
+```
+
 ## References
 
 - [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
