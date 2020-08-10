@@ -16,7 +16,7 @@ public class MainApi {
 
   @GetMapping()
   public String index() {
-    return "Welcome to Todo List REST API!";
+    return "Welcome to Todo List REST API!<br /><a href=\"http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config\">Swagger UI</a>";
   }
 
   @GetMapping(value = "/counters")
