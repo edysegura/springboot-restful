@@ -20,6 +20,6 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: edysegura/springboot-restful
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: edysegura
           password: ${{ secrets.DOCKER_TOKEN }}
           tag_semver: true
