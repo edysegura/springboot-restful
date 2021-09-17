@@ -21,4 +21,5 @@ jobs:
         with:
           name: edysegura/springboot-restful
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+          tag_semver: true
